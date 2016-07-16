@@ -7,3 +7,13 @@ class Student(object):
         self.first_name = first_name
         self.last_name = last_name
         self.address = address
+
+class Question(object):
+    """A question"""
+
+    def __init__(self, question, correct_answer):
+        """A question and a correct answer"""
+
+        self.question = question
+        self.correct_answer = correct_answer
+        
