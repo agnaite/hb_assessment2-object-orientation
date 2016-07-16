@@ -16,4 +16,12 @@ class Question(object):
 
         self.question = question
         self.correct_answer = correct_answer
-        
+
+class Exam(object):
+    """An exam"""
+
+    def __init__(self, name):
+        """An exam that takes a name and has a list of questions"""
+
+        self.name = name
+        self.questions = []
