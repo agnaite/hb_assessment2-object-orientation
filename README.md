@@ -22,10 +22,10 @@ A function defined for a class.
 An individual instance of a class (e.g. a particular file).
 
 ### 6. How is a class attribute different than an instance attribute? Give an example of when you might use each.
-A class attribute is data set on the class itself, an not an instance of a class. 
+A class attribute is data set on the class itself, and not an instance of a class. 
 
 For example:
 
-If you have a class `Shoes()` and know that the majority of the `Shoes()` instances will have the attribute `material: 'leather'`, then it would make sense to set a class attribute, so that all the `Shoes()` instances will have the material set at `__init__`. 
+If you have a class `Shoes` and know that the majority of the `Shoes` instances will have the attribute `material = 'leather'`, then it would make sense to set a class attribute, so that all the `Shoes` instances will have the material set at `__init__`. 
 
-On the other hand, if `Shoes()` contained all types of shoes with different materials, it would make more sense to set the attribute on each instance individually.
+On the other hand, if `Shoes` contained all types of shoes with different materials, it would make more sense to set the attribute on each instance individually.
