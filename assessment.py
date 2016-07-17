@@ -9,18 +9,6 @@ class Student(object):
         self.address = address
         self.score = None
 
-    def get_score(self, exam):
-        """Returns a percentage score for the exam passed in"""
-
-        if self.score == True:
-            return "{} passed the quiz.".format(self.first_name)
-        elif self.score == False:
-            return "{} failed the quiz.".format(self.first_name)
-        elif self.score is not None:
-            return "{} scored: {:.2f}%.".format(self.first_name,
-                                           (float(self.score)/len(exam.questions)) * 100)
-        else:
-            return "{} has not taken any exams.".format(self.first_name)
 
 class Question(object):
     """A question"""
@@ -64,6 +52,16 @@ class Exam(object):
 
         return score
 
+    def get_score(self, student):
+        """Returns a student's score as a percentage"""
+
+        if student.score is not None:
+            return "{} scored: {:.2f}%.".format(student.first_name,
+                                               (float(student.score)/len(self.questions)) * 100)
+        else:
+            return "{} has not taken any exams.".format(student.first_name)
+
+
 class Quiz(Exam):
     """A quiz which inherits from Exam class"""
 
@@ -73,6 +71,17 @@ class Quiz(Exam):
             return True
         else:
             return False
+
+    def get_score(self, student):
+        """Returns passed or failed for a student"""
+
+        if student.score is not None:
+            if student.score:
+                return "{} passed the quiz.".format(student.first_name)
+            else:
+                return "{} failed the quiz.".format(student.first_name)
+        else:
+            return "{} has not taken any exams.".format(student.first_name)
 
 
 def take_test(exam, student):
@@ -94,7 +103,7 @@ def example():
     student = Student("Joanna", "Schmidt", "345 Florida Dr")
 
     take_test(exam, student)
-    print student.get_score(exam)
+    print exam.get_score(student)
 
 def quiz_example():
     """Creates a student and a quiz"""
@@ -108,4 +117,4 @@ def quiz_example():
     student = Student("Doron", "Fishman", "300 20th St")
 
     take_test(exam, student)
-    print student.get_score(exam)
+    print exam.get_score(student)
